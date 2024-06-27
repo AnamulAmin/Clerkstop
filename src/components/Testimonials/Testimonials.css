@@ -1,0 +1,33 @@
+
+.testimonials .swiper {
+    width: 100%;
+    background: #fff !important;
+  }
+  
+  .testimonials .swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    /* min-height: fit-content !important; */
+    display: flex ;
+    align-items: center;
+  }
+  
+  
+  .testimonials .swiper-slide .title {
+    font-size: 41px;
+    font-weight: 300;
+  }
+  
+  .testimonials .swiper-slide .subtitle {
+    font-size: 21px;
+  }
+  
+  .testimonials .swiper-slide .text {
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.3;
+  }
+  

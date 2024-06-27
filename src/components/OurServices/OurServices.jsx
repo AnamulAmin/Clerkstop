@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./OurServices.css";
 import OurServiceCard from "./OurServiceCard/OurServiceCard";
 import SectionHeading from "../Parcials/SectionHeading/SectionHeading";
+import OurServicesModal from "./OurServicesModal/OurServicesModal";
+import ConsultationForm from "../Consultation/ConsultationForm/ConsultationForm";
 export default function OurServices() {
+  const [dynamicData, setDynamicData] = useState({})
+  const [showModal, setShowModal] = useState(false) 
+  const [showConsultationModal, setShowConsultationModal] = useState(false) 
+  console.log(showConsultationModal)
   const services = [
     {
       title: "Web/App Developers",
@@ -36,9 +42,15 @@ export default function OurServices() {
 
       <div className="container mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {services.map((service, index) => (
-          <OurServiceCard content={service} key={index} precedence={index + 1} />
+          <OurServiceCard content={service} key={index} precedence={index + 1} handleModal={()=> {setDynamicData(service); setShowModal(true)}} />
         ))}
       </div>
+      {
+        showModal && <OurServicesModal content={dynamicData} handleModal={()=> setShowModal(false)} setShowConsultationModal={setShowConsultationModal} />
+      }
+      {
+        showConsultationModal && <ConsultationForm toggleModal={()=> {setShowConsultationModal(false)}} />
+      }
     </div>
   );
 }
